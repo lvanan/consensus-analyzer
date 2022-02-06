@@ -2,7 +2,7 @@ package services.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import repositories.model.ModelCheckResult;
-import services.CNFModelCheckerService;
+import repositories.model.ModelCheckerResultWrapper;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,20 +20,19 @@ public class CNFModelChecker {
     }
 
     public void run() {
-        CNFModelCheckerService cnfModelCheckerService = new CNFModelCheckerServiceImpl();
+        CNFModelCheckerServiceImpl cnfModelCheckerService = new CNFModelCheckerServiceImpl();
         List<ModelCheckResult> results = cnfModelCheckerService.getModelCheckingResult(configPath, computeBackwards);
 
-//        System.out.println("model checking results: ");
-//
-//        for (ModelCheckResult res :
-//                results) {
-//            System.out.println(res.toString());
-//        }
+        ModelCheckerResultWrapper modelCheckerResultWrapper = new ModelCheckerResultWrapper();
+        modelCheckerResultWrapper.setModelCheckResultList(results);
+        modelCheckerResultWrapper.setSpecification(cnfModelCheckerService.getSpec());
+        modelCheckerResultWrapper.setOrganizations(cnfModelCheckerService.getOrganizations());
+
         System.out.println("great, now writing results to json: ");
 
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            objectMapper.writeValue(new File("resources/results.json"), results);
+            objectMapper.writeValue(new File("resources/results.json"), modelCheckerResultWrapper);
         } catch (IOException e) {
             e.printStackTrace();
         }

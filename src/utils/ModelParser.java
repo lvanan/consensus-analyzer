@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -121,6 +122,37 @@ public class ModelParser {
 
         return orgProbabilities;
     }
+
+    public List<int[]> getSortedSpecifications(CNFModel cnfModel){
+        List<int[]> spec = new ArrayList<>();
+        List<String> orgNames = cnfModel.getOrganizations();
+
+        for (LiteralModel literal : cnfModel.getLiterals()) {
+            int[] specLiteral = new int[cnfModel.getOrganizations().size()];
+            Arrays.fill(specLiteral, 1);
+            List<int[]> temp = new ArrayList<>();
+            temp.add(specLiteral);
+
+            for (int i = 0; i < orgNames.size(); i++) {
+                String name = orgNames.get(i);
+                if (!literal.getLiteralMembers().contains(name)) {
+                    List<int[]> tempClones = new ArrayList<>();
+                    for (int[] t :
+                            temp) {
+                        int[] tClone = t.clone();
+                        tClone[i] = 0;
+                        tempClones.add(tClone);
+                    }
+                    temp.addAll(tempClones);
+                }
+            }
+
+            spec.addAll(temp);
+        }
+
+        return spec;
+    }
+
 
     public List<int[]> parseBackwardTransitions(File configFile, double probability, double expectedMessages){
         return new ArrayList<>();

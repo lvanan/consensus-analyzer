@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface CNFModelCheckerService {
     List<ModelCheckResult> getModelCheckingResult(String configPath, boolean computeBackwards);
+
+    public List<int[]> getSpec();
 }

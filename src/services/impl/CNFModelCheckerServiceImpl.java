@@ -15,7 +15,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -24,7 +23,11 @@ import java.util.Set;
 
 public class CNFModelCheckerServiceImpl implements CNFModelCheckerService {
 
-    CombinationsUtils combinationsUtils = new CombinationsUtils();
+    private CombinationsUtils combinationsUtils = new CombinationsUtils();
+
+    private List<int[]> spec;
+
+    private List<String> organizations;
 
     @Override
     public List<ModelCheckResult> getModelCheckingResult(String configPath, boolean computeBackwards) {
@@ -38,6 +41,8 @@ public class CNFModelCheckerServiceImpl implements CNFModelCheckerService {
             Map<String, Double> probabilitiesMap = modelParser.parseAcceptanceProbabilities(configFile);
 
             List<Double> probabilities = new ArrayList<>(cnfModel.getOrganizations().size());
+
+            organizations = cnfModel.getOrganizations();
 
             for (String orgName :
                     cnfModel.getOrganizations()) {
@@ -58,13 +63,15 @@ public class CNFModelCheckerServiceImpl implements CNFModelCheckerService {
                 backwardTransitionsCombinations.add(zeroBackwards);
             }
 
+            spec = modelParser.getSortedSpecifications(cnfModel);
+
             for (Set<int[]> backwardTransitions :
                     backwardTransitionsCombinations) {
 //                System.out.println("compute with backward transition: ");
 //                backwardTransitions.forEach(backwards -> {
 //                    System.out.println(Arrays.toString(backwards));
 //                });
-                CNFModelGeneratorServiceImpl modelGenerator = new CNFModelGeneratorServiceImpl(cnfModel, probabilities,
+                CNFModelGeneratorServiceImpl modelGenerator = new CNFModelGeneratorServiceImpl(spec, probabilities,
                         backwardTransitions);
                 ModelCheckResult modelCheckResult = new ModelCheckResult(cnfModel.getOrganizations());
                 modelCheckResult.setBackwardTransitions(backwardTransitions);
@@ -111,5 +118,13 @@ public class CNFModelCheckerServiceImpl implements CNFModelCheckerService {
             e.printStackTrace();
         }
         return result;
+    }
+
+    public List<int[]> getSpec() {
+        return spec;
+    }
+
+    public List<String> getOrganizations() {
+        return organizations;
     }
 }
