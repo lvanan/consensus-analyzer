@@ -3,6 +3,7 @@ package utils;
 import exceptions.IncorrectCNFException;
 import repositories.model.CNF.CNFModel;
 import repositories.model.CNF.LiteralModel;
+import repositories.model.CNF_negation.CNFNegationModel;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -19,6 +20,11 @@ import java.util.Map;
 import java.util.Set;
 
 public class ModelParser {
+    public CNFNegationModel parseCNFNegationModel(File configFile){
+        //TODO
+        return null;
+    }
+
     public CNFModel parseCNFModel(File configFile) throws IOException, IncorrectCNFException {
         CNFModel cnf = new CNFModel();
 
