@@ -35,8 +35,8 @@ In the output one can see the probability and expected number of messages for di
 TODO:
 * add negations to literals - Folu
 * split configuration file on distinct 2 files: for probability and for specification - Folu
+* add formula conversion to CNF if it's in another form
 * how to add prism precision
 * for each backward transition create a separate .dot representation
-* add formula conversion to CNF if it's in another form
 * figure out how to connect prism with maven and build the project as a single jar with fat jar
 * visualization

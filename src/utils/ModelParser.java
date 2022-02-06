@@ -6,6 +6,7 @@ import repositories.model.CNF.LiteralModel;
 import repositories.model.CNF_negation.CNFNegationModel;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -19,8 +20,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import prism.PrismException;
+import parser.ast.Expression;
+import parser.PrismParser;
+import parser.BooleanUtils;
+
 public class ModelParser {
-    public CNFNegationModel parseCNFNegationModel(File configFile){
+    public CNFNegationModel parseCNFNegationModel(File configFile) {
         //TODO
         return null;
     }
@@ -38,6 +44,7 @@ public class ModelParser {
 
             if (lineText.startsWith("    Rule:")) {
                 String realLiterals = lineText.substring(7, lineText.length() - 1);
+//                String realLiterals = parseAndConvertToCNF(lineText.substring(7, lineText.length() - 1));
                 StringBuilder str = new StringBuilder();
 
                 for (int i = 1; i < realLiterals.length(); ++i) {
@@ -46,10 +53,6 @@ public class ModelParser {
                             str.append(realLiterals.charAt(i));
                             ++i;
                         }
-
-
-                        // TODO: in literals organizations must go in the same order as in the specification, even if the cnf formula it's specified in different order
-                        //TODO: For example: org1, org2; CNF: (org2 AND org1), then CNFModel must be with 1 literal with list containing at the first index org1, and second org2
                         final Set<String> setToReturn = new LinkedHashSet<>();
                         final Set<String> tempSet = new HashSet<>();
 
@@ -129,7 +132,7 @@ public class ModelParser {
         return orgProbabilities;
     }
 
-    public List<int[]> getSortedSpecifications(CNFModel cnfModel){
+    public List<int[]> getSortedSpecifications(CNFModel cnfModel) {
         List<int[]> spec = new ArrayList<>();
         List<String> orgNames = cnfModel.getOrganizations();
 
@@ -160,11 +163,24 @@ public class ModelParser {
     }
 
 
-    public List<int[]> parseBackwardTransitions(File configFile, double probability, double expectedMessages){
+    public List<int[]> parseBackwardTransitions(File configFile, double probability, double expectedMessages) {
         return new ArrayList<>();
     }
 
-    public List<int[]> parseSpecificationToBinary(CNFModel cnfModel){
+    public List<int[]> parseSpecificationToBinary(CNFModel cnfModel) {
         return new ArrayList<>();
+    }
+
+    public String parseAndConvertToCNF(String formulaToConvert) {
+        PrismParser parser = new PrismParser();
+        String formulaCNFForm = "";
+        try {
+            Expression expr = parser.parseSingleExpression(new ByteArrayInputStream(formulaToConvert.getBytes()));
+            formulaCNFForm = BooleanUtils.convertToCNF(expr.deepCopy()).toString();
+        } catch (PrismException e) {
+            System.out.println(String.format("Unable to convert formula *%s* to CNF format: ",
+                    formulaToConvert) + e.getMessage());
+        }
+        return formulaCNFForm;
     }
 }
