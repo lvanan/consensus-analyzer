@@ -20,6 +20,7 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 import prism.PrismException;
@@ -156,11 +157,11 @@ public class ModelParser {
         return orgProbabilities;
     }
 
-    public List<int[]> getSortedSpecifications(CNFModel cnfModel) {
+    public List<int[]> getSortedSpecifications(CNFNegationModel cnfModel) {
         List<int[]> spec = new ArrayList<>();
         List<String> orgNames = cnfModel.getOrganizations();
 
-        for (LiteralModel literal : cnfModel.getLiterals()) {
+        for (LiteralNegationModel literal : cnfModel.getLiterals()) {
             int[] specLiteral = new int[cnfModel.getOrganizations().size()];
             Arrays.fill(specLiteral, 1);
             List<int[]> temp = new ArrayList<>();
@@ -168,7 +169,11 @@ public class ModelParser {
 
             for (int i = 0; i < orgNames.size(); i++) {
                 String name = orgNames.get(i);
-                if (!literal.getLiteralMembers().contains(name)) {
+                Optional<LiteralMemberNegationModel> literalMemberCandidate = literal.getLiteralMembers().stream()
+                        .filter(member -> member.getMemberName().equals(name))
+                        .findAny();
+
+                if (literalMemberCandidate.isEmpty() || literalMemberCandidate.get().isNegation()) {
                     List<int[]> tempClones = new ArrayList<>();
                     for (int[] t :
                             temp) {
@@ -220,9 +225,9 @@ public class ModelParser {
                 System.out.println(LMNM.isNegation() + " " + LMNM.getMemberName());
             }
         }
-        
+
         System.out.println();
-        
+
         for (String org : cnfNeg.getOrganizations()) {
             System.out.println(org);
         }

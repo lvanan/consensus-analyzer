@@ -6,6 +6,7 @@ import prism.PrismDevNullLog;
 import prism.PrismException;
 import prism.PrismLog;
 import repositories.model.CNF.CNFModel;
+import repositories.model.CNF_negation.CNFNegationModel;
 import repositories.model.ModelCheckResult;
 import services.CNFModelCheckerService;
 import utils.CombinationsUtils;
@@ -36,7 +37,7 @@ public class CNFModelCheckerServiceImpl implements CNFModelCheckerService {
         File configFile = new File(configPath);
 
         try {
-            CNFModel cnfModel = modelParser.parseCNFModel(configFile);
+            CNFNegationModel cnfModel = modelParser.parseCNFNegationModel(configFile);
 
             Map<String, Double> probabilitiesMap = modelParser.parseAcceptanceProbabilities(configFile);
 
