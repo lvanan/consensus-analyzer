@@ -1,8 +1,11 @@
 # consensus-analyzer
 
-This repo contains code for analyzation consensus protocols represented in CNF form
+TODO: add a brief description of the tool.
+This repo contains code for analyzation consensus protocols.
+In the output one can see the probability and expected number of messages for different combinations of 
+backward transitions.
 
-## Basic instructions
+## Installation instructions
 
 Download a copy of PRISM and build it
 
@@ -18,25 +21,24 @@ Download the ``consensus-analyzer`` repo and build the examples
 * ``cd consensus-analyzer``
 * ``make``
 
-## Further instructions
-
 The second part of the above assumes that PRISM is in a directory called ``prism`` one level up.
 If you want to use a PRISM distribution located elsewhere, build like this:
 
 * ``make PRISM_DIR=/some/copy/of/prism``
 
+## Usage instructions
+
 Run ``bin/run``with parameters: 
 * path to configuration file
+* path to the output file
 * flag true if running with backward transitions, false otherwise
 
-Run example: bin/run resources/cnf_simple.yaml true
+Configuration example: ./resources/cnf_simple.yaml
 
-In the output one can see the probability and expected number of messages for different combinations of backward transitions.
+Run example: bin/run ./resources/cnf_simple.yaml resources true
 
 TODO:
-* add negations to literals - Folu
 * split configuration file on distinct 2 files: for probability and for specification - Folu
-* add formula conversion to CNF if it's in another form
 * for each backward transition create a separate .dot representation
 * how to add prism precision
 * figure out how to connect prism with maven and build the project as a single jar with fat jar

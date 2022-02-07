@@ -30,6 +30,10 @@ import parser.BooleanUtils;
 import prism.Prism;
 
 public class ModelParser {
+    public CNFNegationModel parseCNFNegationModel(File configProbabilitiesFile, File specificationFile){
+        return null;
+    }
+
     public CNFNegationModel parseCNFNegationModel(File configFile) throws IncorrectCNFException, IOException {
         CNFNegationModel cnfNeg = new CNFNegationModel();
         CNFModel cnf = parseCNFModel(configFile);
