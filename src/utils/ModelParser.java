@@ -157,6 +157,7 @@ public class ModelParser {
         return orgProbabilities;
     }
 
+    // TODO: check that negation works correct on different examples
     public List<int[]> getSortedSpecifications(CNFNegationModel cnfModel) {
         List<int[]> spec = new ArrayList<>();
         List<String> orgNames = cnfModel.getOrganizations();
@@ -189,15 +190,6 @@ public class ModelParser {
         }
 
         return spec;
-    }
-
-
-    public List<int[]> parseBackwardTransitions(File configFile, double probability, double expectedMessages) {
-        return new ArrayList<>();
-    }
-
-    public List<int[]> parseSpecificationToBinary(CNFModel cnfModel) {
-        return new ArrayList<>();
     }
 
     public String parseAndConvertToCNF(String formulaToConvert) {
