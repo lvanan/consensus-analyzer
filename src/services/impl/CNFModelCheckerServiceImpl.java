@@ -52,8 +52,6 @@ public class CNFModelCheckerServiceImpl implements CNFModelCheckerService {
 
             List<Set<int[]>> backwardTransitionsCombinations = new ArrayList<>();
 
-            System.out.println("orgs: " + cnfModel.getOrganizations().size());
-
             if (computeBackwards) {
                 backwardTransitionsCombinations = combinationsUtils
                         .getBackwardTransitionsCombinations(cnfModel.getOrganizations().size());

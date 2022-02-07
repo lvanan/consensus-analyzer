@@ -11,10 +11,12 @@ import java.util.List;
 public class CNFModelChecker {
     static boolean computeBackwards;
     static String configPath;
+    static String outputPath;
 
     public static void main(String[] args) {
         configPath = args[0];
-        computeBackwards = Boolean.parseBoolean(args[1]);
+        outputPath = args[1];
+        computeBackwards = Boolean.parseBoolean(args[2]);
 
         new CNFModelChecker().run();
     }
@@ -28,11 +30,13 @@ public class CNFModelChecker {
         modelCheckerResultWrapper.setSpecification(cnfModelCheckerService.getSpec());
         modelCheckerResultWrapper.setOrganizations(cnfModelCheckerService.getOrganizations());
 
-        System.out.println("great, now writing results to json: ");
+        outputPath = outputPath + "/results.json";
+
+        System.out.printf("writing results to json in %s%n", outputPath);
 
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            objectMapper.writeValue(new File("resources/results.json"), modelCheckerResultWrapper);
+            objectMapper.writeValue(new File(outputPath), modelCheckerResultWrapper);
         } catch (IOException e) {
             e.printStackTrace();
         }
