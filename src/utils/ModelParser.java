@@ -27,6 +27,7 @@ import prism.PrismException;
 import parser.ast.Expression;
 import parser.PrismParser;
 import parser.BooleanUtils;
+import prism.Prism;
 
 public class ModelParser {
     public CNFNegationModel parseCNFNegationModel(File configFile) throws IncorrectCNFException, IOException {
@@ -69,8 +70,10 @@ public class ModelParser {
             }
 
             if (lineText.startsWith("    Rule:")) {
-                String realLiterals = lineText.substring(7, lineText.length() - 1);
+                String realLiterals = parseAndConvertToDNF(lineText.substring(11, lineText.length() - 1));
                 StringBuilder str = new StringBuilder();
+
+                System.out.println("Specification DNF form: " + realLiterals);
 
                 for (int i = 1; i < realLiterals.length(); ++i) {
                     if (realLiterals.charAt(i - 1) == '(') {
@@ -81,7 +84,7 @@ public class ModelParser {
                         final Set<String> setToReturn = new LinkedHashSet<>();
                         final Set<String> tempSet = new HashSet<>();
 
-                        for (String tempStr : str.toString().split(" AND ")) {
+                        for (String tempStr : str.toString().split("&")) {
                             String realLiteral = tempStr;
                             if (tempStr.contains(" ")) {
                                 tempStr = tempStr.substring(tempStr.lastIndexOf(" ") + 1);
@@ -157,6 +160,7 @@ public class ModelParser {
         return orgProbabilities;
     }
 
+    // TODO: check that negation works correct on different examples
     public List<int[]> getSortedSpecifications(CNFNegationModel cnfModel) {
         List<int[]> spec = new ArrayList<>();
         List<String> orgNames = cnfModel.getOrganizations();
@@ -191,26 +195,30 @@ public class ModelParser {
         return spec;
     }
 
+    public String parseAndConvertToDNF(String formulaToConvert) {
+        StringBuilder sb = new StringBuilder();
 
-    public List<int[]> parseBackwardTransitions(File configFile, double probability, double expectedMessages) {
-        return new ArrayList<>();
-    }
-
-    public List<int[]> parseSpecificationToBinary(CNFModel cnfModel) {
-        return new ArrayList<>();
-    }
-
-    public String parseAndConvertToCNF(String formulaToConvert) {
-        PrismParser parser = new PrismParser();
-        String formulaCNFForm = "";
         try {
-            Expression expr = parser.parseSingleExpression(new ByteArrayInputStream(formulaToConvert.getBytes()));
-            formulaCNFForm = BooleanUtils.convertToCNF(expr.deepCopy()).toString();
-        } catch (PrismException e) {
+            Expression expr = Prism.parseSingleExpressionString(formulaToConvert);
+            String formulaDNFForm = BooleanUtils.convertToDNF(expr.deepCopy()).toString();
+
+            sb.append("(");
+            for (int i = 0; i < formulaDNFForm.length(); i++) {
+                if (formulaDNFForm.charAt(i) == '|') {
+                    sb.append(")");
+                    sb.append("|");
+                    sb.append("(");
+                } else {
+                    sb.append(formulaDNFForm.charAt(i));
+                }
+            }
+            sb.append(")");
+
+        } catch (PrismException  e) {
             System.out.println(String.format("Unable to convert formula *%s* to CNF format: ",
                     formulaToConvert) + e.getMessage());
         }
-        return formulaCNFForm;
+        return sb.toString();
     }
 
     public static void main(String[] args) throws IncorrectCNFException, IOException {
