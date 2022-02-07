@@ -4,6 +4,8 @@ import exceptions.IncorrectCNFException;
 import repositories.model.CNF.CNFModel;
 import repositories.model.CNF.LiteralModel;
 import repositories.model.CNF_negation.CNFNegationModel;
+import repositories.model.CNF_negation.LiteralMemberNegationModel;
+import repositories.model.CNF_negation.LiteralNegationModel;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -26,9 +28,32 @@ import parser.PrismParser;
 import parser.BooleanUtils;
 
 public class ModelParser {
-    public CNFNegationModel parseCNFNegationModel(File configFile) {
-        //TODO
-        return null;
+    public CNFNegationModel parseCNFNegationModel(File configFile) throws IncorrectCNFException, IOException {
+        CNFNegationModel cnfNeg = new CNFNegationModel();
+        CNFModel cnf = parseCNFModel(configFile);
+
+        cnfNeg.setOrganizations(cnf.getOrganizations());
+
+        for (LiteralModel literalModel : cnf.getLiterals()) {
+            LiteralNegationModel literalNegationModel = new LiteralNegationModel();
+
+            for (String str : literalModel.getLiteralMembers()) {
+                LiteralMemberNegationModel memberNegationModel = new LiteralMemberNegationModel();
+                if (str.startsWith("!")) {
+                    memberNegationModel.setNegation(true);
+                    memberNegationModel.setMemberName(str.substring(2));
+                } else {
+                    memberNegationModel.setNegation(false);
+                    memberNegationModel.setMemberName(str);
+                }
+
+                literalNegationModel.addMember(memberNegationModel);
+            }
+
+            cnfNeg.addModel(literalNegationModel);
+        }
+
+        return cnfNeg;
     }
 
     public CNFModel parseCNFModel(File configFile) throws IOException, IncorrectCNFException {
@@ -44,7 +69,6 @@ public class ModelParser {
 
             if (lineText.startsWith("    Rule:")) {
                 String realLiterals = lineText.substring(7, lineText.length() - 1);
-//                String realLiterals = parseAndConvertToCNF(lineText.substring(7, lineText.length() - 1));
                 StringBuilder str = new StringBuilder();
 
                 for (int i = 1; i < realLiterals.length(); ++i) {
@@ -75,7 +99,7 @@ public class ModelParser {
                         for (int j = 0; j < literals.getLiteralMembers().size(); j++) {
                             if (!setToReturn.contains(literals.getLiteralMembers().get(j))) {
                                 StringBuilder tempStr = new StringBuilder(literals.getLiteralMembers().get(j));
-                                literals.setLiteral(tempStr.insert(0, "NOT ").toString(), j);
+                                literals.setLiteral(tempStr.insert(0, "! ").toString(), j);
                             }
                         }
 
@@ -182,5 +206,25 @@ public class ModelParser {
                     formulaToConvert) + e.getMessage());
         }
         return formulaCNFForm;
+    }
+
+    public static void main(String[] args) throws IncorrectCNFException, IOException {
+        final String SIMPLE_SYSTEM_CONFIG_PATH = "../resources/cnf_negation.yaml";
+        File file = new File(SIMPLE_SYSTEM_CONFIG_PATH);
+
+        CNFNegationModel cnfNeg = new ModelParser().parseCNFNegationModel(file);
+
+        for (LiteralNegationModel LNM : cnfNeg.getLiterals()) {
+            System.out.println("Literal...");
+            for (LiteralMemberNegationModel LMNM : LNM.getLiteralMembers()) {
+                System.out.println(LMNM.isNegation() + " " + LMNM.getMemberName());
+            }
+        }
+        
+        System.out.println();
+        
+        for (String org : cnfNeg.getOrganizations()) {
+            System.out.println(org);
+        }
     }
 }
