@@ -1,9 +1,24 @@
 # consensus-analyzer
 
-TODO: add a brief description of the tool.
 This repo contains code for analyzation consensus protocols.
-In the output one can see the probability and expected number of messages for different combinations of 
-backward transitions.
+User provides set of consensus members/organizations, and for each organization the probability to accept 
+transaction. One can take the probability from the historical data set. If there is not enough data, it's recommended
+to used beta distribution - http://varianceexplained.org/r/empirical_bayes_baseball/
+As a consensus condition user provides a boolean formula. Each member of the formula represents name if the consensus
+member. Examples locate in resources.
+
+The tool converts formula to DNF form and displays it before the computation. Further, the tool defines the probability 
+that members reach the consensus. The tool works in two options:
+* without backward transitions - just one round of confirmation
+* with backward transition. If some member rejects the transaction, then transaction will be sent for confirmation
+again to all members. The tool computes probability to reach the consensus for all possible combinations of backward
+transitions.
+
+In the output one gets the probability and expected number of messages for each model that corresponds to the unique 
+combinations of backward transitions. A user chooses a proper combination of expected messages vs probability, and 
+passes further the results file to consensus-scheduler. Also, tool creates a text representation of discrete-time
+Markov chain for each model. One can see the analyzation result in results/results.json, and dtmc models in 
+results/models.
 
 ## Installation instructions
 
@@ -35,11 +50,10 @@ Run ``bin/run``with parameters:
 
 Configuration example: ./resources/cnf_simple.yaml
 
-Run example: bin/run ./resources/cnf_simple.yaml resources true
+Run example: bin/run ./resources/cnf_simple.yaml ./resources true
 
 TODO:
 * split configuration file on distinct 2 files: for probability and for specification - Folu
-* for each backward transition create a separate .dot representation
 * how to add prism precision
 * figure out how to connect prism with maven and build the project as a single jar with fat jar
 * visualization

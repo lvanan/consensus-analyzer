@@ -23,7 +23,8 @@ public class CNFModelChecker {
 
     public void run() {
         CNFModelCheckerServiceImpl cnfModelCheckerService = new CNFModelCheckerServiceImpl();
-        List<ModelCheckResult> results = cnfModelCheckerService.getModelCheckingResult(configPath, computeBackwards);
+        List<ModelCheckResult> results = cnfModelCheckerService.getModelCheckingResult(configPath, outputPath,
+                computeBackwards);
 
         ModelCheckerResultWrapper modelCheckerResultWrapper = new ModelCheckerResultWrapper();
         modelCheckerResultWrapper.setModelCheckResultList(results);
