@@ -12,16 +12,7 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 import prism.PrismException;
 import parser.ast.Expression;
@@ -30,8 +21,71 @@ import parser.BooleanUtils;
 import prism.Prism;
 
 public class ModelParser {
-    public CNFNegationModel parseCNFNegationModel(File configProbabilitiesFile, File specificationFile){
-        return null;
+    public CNFNegationModel parseCNFNegationModel(File configProbabilitiesFile, File specificationFile) throws IncorrectCNFException, IOException {
+        CNFNegationModel cnfNeg = parseCNFNegationModel(specificationFile);
+
+        Map<String, Double> probabilities = parseAcceptanceProbabilities(configProbabilitiesFile);
+        List<String> orgs = new ArrayList<>(probabilities.keySet());
+
+        for (LiteralNegationModel LNM : cnfNeg.getLiterals()) {
+            LNM.getLiteralMembers().sort(Comparator.comparing(item -> orgs.indexOf(item.getMemberName())));
+        }
+
+        BufferedReader lineReader = new BufferedReader(new FileReader(specificationFile));
+        String lineText;
+        int index = 0;
+
+        while ((lineText = lineReader.readLine()) != null) {
+            if (lineText.startsWith("    Rule:")) {
+                String realLiterals = parseAndConvertToDNF(lineText.substring(11, lineText.length() - 1));
+
+                for (int i = 1; i < realLiterals.length(); ++i) {
+                    boolean negFlag = false;
+                    StringBuilder negative = null;
+                    int spaceCount = 0;
+
+                    if (realLiterals.charAt(i - 1) == '(') {
+                        while (realLiterals.charAt(i) != ')') {
+
+                            if (realLiterals.charAt(i) == '!') {
+                                negative = new StringBuilder();
+                                negFlag = true;
+                            }
+
+                            if (negFlag) {
+                                negative.append(realLiterals.charAt(i));
+
+                                if (realLiterals.charAt(i) == ' ') {
+                                    ++spaceCount;
+                                }
+                            }
+
+                            if (negFlag && (realLiterals.charAt(i + 1) == ')' || realLiterals.charAt(i + 1) == ' ') && spaceCount > 0) {
+                                for (LiteralMemberNegationModel LMNM : cnfNeg.getLiterals().get(index).getLiteralMembers()) {
+                                    if (Objects.equals(negative.substring(2), LMNM.getMemberName())) {
+                                        LMNM.setMemberName(negative.toString());
+                                        LMNM.setNegation(true);
+                                    }
+                                }
+
+                                negFlag = false;
+                                spaceCount = 0;
+                            }
+
+                            ++i;
+                        }
+
+                        ++ index;
+                    }
+                }
+            }
+        }
+
+        for (String org : probabilities.keySet()) {
+            cnfNeg.addOrganization(org);
+        }
+
+        return cnfNeg;
     }
 
     public CNFNegationModel parseCNFNegationModel(File configFile) throws IncorrectCNFException, IOException {
@@ -85,11 +139,13 @@ public class ModelParser {
                             str.append(realLiterals.charAt(i));
                             ++i;
                         }
+
                         final Set<String> setToReturn = new LinkedHashSet<>();
                         final Set<String> tempSet = new HashSet<>();
 
-                        for (String tempStr : str.toString().split("&")) {
+                        for (String tempStr : str.toString().split(" & ")) {
                             String realLiteral = tempStr;
+
                             if (tempStr.contains(" ")) {
                                 tempStr = tempStr.substring(tempStr.lastIndexOf(" ") + 1);
                             }
@@ -102,12 +158,15 @@ public class ModelParser {
                         }
 
                         LiteralModel literals = new LiteralModel(new ArrayList<>(tempSet));
-                        literals.getLiteralMembers().sort(Comparator.comparing(item -> cnf.getOrganizations().indexOf(item)));
 
-                        for (int j = 0; j < literals.getLiteralMembers().size(); j++) {
-                            if (!setToReturn.contains(literals.getLiteralMembers().get(j))) {
-                                StringBuilder tempStr = new StringBuilder(literals.getLiteralMembers().get(j));
-                                literals.setLiteral(tempStr.insert(0, "! ").toString(), j);
+                        if (cnf.getOrganizations() != null) {
+                            literals.getLiteralMembers().sort(Comparator.comparing(item -> cnf.getOrganizations().indexOf(item)));
+
+                            for (int j = 0; j < literals.getLiteralMembers().size(); j++) {
+                                if (!setToReturn.contains(literals.getLiteralMembers().get(j))) {
+                                    StringBuilder tempStr = new StringBuilder(literals.getLiteralMembers().get(j));
+                                    literals.setLiteral(tempStr.insert(0, "! ").toString(), j);
+                                }
                             }
                         }
 
@@ -122,7 +181,7 @@ public class ModelParser {
     }
 
     public Map<String, Double> parseAcceptanceProbabilities(File configFile) throws IOException, IncorrectCNFException {
-        Map<String, Double> orgProbabilities = new HashMap<>();
+        Map<String, Double> orgProbabilities = new TreeMap<>();
         BufferedReader lineReader = new BufferedReader(new FileReader(configFile));
         String lineText;
         String org = null;
@@ -226,10 +285,13 @@ public class ModelParser {
     }
 
     public static void main(String[] args) throws IncorrectCNFException, IOException {
-        final String SIMPLE_SYSTEM_CONFIG_PATH = "../resources/cnf_negation.yaml";
+        final String SIMPLE_SYSTEM_CONFIG_PATH = "../resources/cnf-1/cnf_1_properties.yaml";
+        final String SIMPLE_SYSTEM_CONFIG_PATH2 = "../resources/cnf-1/cnf_1_spec.yaml";
+        
         File file = new File(SIMPLE_SYSTEM_CONFIG_PATH);
+        File file2 = new File(SIMPLE_SYSTEM_CONFIG_PATH2);
 
-        CNFNegationModel cnfNeg = new ModelParser().parseCNFNegationModel(file);
+        CNFNegationModel cnfNeg = new ModelParser().parseCNFNegationModel(file, file2);
 
         for (LiteralNegationModel LNM : cnfNeg.getLiterals()) {
             System.out.println("Literal...");
