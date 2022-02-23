@@ -200,7 +200,6 @@ public class DrawingUtils extends JFrame {
                     if (numberYDivisions == 1 && i == 1) {
                         String halfWayLabel = (yStartDouble * 10 + yIncrementer * 5) / 10 + "";
                         int y1 = getHeight() - padding - labelPadding;
-                        System.out.println(y1);
                         int halfY0 = y1 + (y0 - y1)/ 2;
                         graphics.drawString(halfWayLabel, x0 - labelWidth - 5,  halfY0+ (metrics.getHeight() / 2) - 3);
                         graphics.setColor(gridColor);
