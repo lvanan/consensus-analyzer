@@ -3,16 +3,21 @@ package utils;
 import exceptions.GraphException;
 
 import javax.swing.*;
+import java.awt.event.WindowEvent;
+import java.awt.geom.Line2D;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
+
+import static java.lang.Math.*;
+
 
 public class DrawingUtils extends JFrame {
     public void drawGraph (String jsonPath, String graphPath) throws IOException, GraphException {
@@ -25,11 +30,13 @@ public class DrawingUtils extends JFrame {
         List<Double> probabilities = new ArrayList<>();
         List<Double> expectedMessages = new ArrayList<>();
 
+        Map<Double, Double> coordinates = new TreeMap<>();
+
         while ((lineText = lineReader.readLine()) != null) {
             for (int i = 0; i < lineText.length(); ++i) {
                 if (lineText.charAt(i) == 'p') {
                     if (lineText.startsWith("probability", i)) {
-                        i = 14 + i;
+                        i = 13 + i;
                         StringBuilder prob = new StringBuilder();
 
                         while (lineText.charAt(i) != ',') {
@@ -45,11 +52,11 @@ public class DrawingUtils extends JFrame {
                             throw new GraphException("Probability greater than 1");
                         }
 
-                        probabilities.add(Double.parseDouble(prob.toString()));
+                        probabilities.add(probability);
                     }
                 } else if (lineText.charAt(i) == 'e') {
                     if (lineText.startsWith("expectedMessages", i)) {
-                        i = 19 + i;
+                        i = 18 + i;
                         StringBuilder expectedMessage = new StringBuilder();
 
                         while (lineText.charAt(i) != ',') {
@@ -66,21 +73,34 @@ public class DrawingUtils extends JFrame {
                         expectedMessages.add(expMessage);
                     }
                 }
+
+
             }
         }
+
+        for (int i = 0; i < expectedMessages.size(); i++) {
+            coordinates.put(expectedMessages.get(i), probabilities.get(i));
+        }
+
+        expectedMessages.clear();
+        probabilities.clear();
+
+        expectedMessages = new ArrayList<>(coordinates.keySet());
+        probabilities = new ArrayList<>(coordinates.values());
 
         if (probabilities.size() != expectedMessages.size()) {
             throw new GraphException("Size of Probabilities list differs from size of ExpectedMessages list");
         }
 
-        GraphPanel graph = new GraphPanel(probabilities, expectedMessages, graphFile);
+        GraphPanel graph = new GraphPanel(expectedMessages, probabilities, graphFile);
         graph.run();
     }
 
     private static class GraphPanel extends JPanel {
-        private final Color lineColor = new Color(16, 162, 107, 180);
+        private final Color lineColor = new Color(57, 174, 214, 180);
         private final Color pointColor = new Color(0, 0, 0, 180);
         private final Color gridColor = new Color(200, 200, 200, 200);
+        private final Color highestPointColor = new Color(175, 20, 20, 200);
         private static final Stroke GRAPH_STROKE = new BasicStroke(2f);
         private List<Double> xCoordinates;
         private List<Double> yCoordinates;
@@ -100,15 +120,6 @@ public class DrawingUtils extends JFrame {
 
             int padding = 25;
             int labelPadding = 25;
-            double xScale = ((double) getWidth() - (2 * padding) - labelPadding) / (xCoordinates.size() - 1);
-            double yScale = ((double) getHeight() - 2 * padding - labelPadding) / (getMaxScore() - getMinScore());
-
-            List<Point> graphPoints = new ArrayList<>();
-            for (int i = 0; i < xCoordinates.size(); i++) {
-                int x1 = (int) (i * xScale + padding + labelPadding);
-                int y1 = (int) ((getMaxScore() - yCoordinates.get(i)) * yScale + padding);
-                graphPoints.add(new Point(x1, y1));
-            }
 
             // draw white background
             graphics.setColor(Color.WHITE);
@@ -118,38 +129,100 @@ public class DrawingUtils extends JFrame {
             // create hatch marks and grid lines for y-axis.
             int pointWidth = 6;
             int pointHeight = 6;
+
             int numberYDivisions = 10;
+            int numberXDivisions;
+
+            int xStart = (int)getMinScore(xCoordinates);
+            double xMax = getMaxScore(xCoordinates);
+            double xDiff = xMax - xStart;
+            double xIncrementer;
+
+            double yStartDouble = getMinScore(yCoordinates); // done because yStart [0, 1] so extremely small.
+            double yMax = getMaxScore(yCoordinates);
+            double yDiff = yMax - yStartDouble;
+            double yIncrementer = 0.1;
+
+            if (xDiff < 1) {
+                double divider = 1.0;
+                double xDiffCopy = xDiff;
+                while (xDiffCopy < 1) {
+                    xDiffCopy *= 10;
+                    divider *= 10.0;
+                }
+
+                numberXDivisions = (int)xDiffCopy + 1;
+                xIncrementer = (numberXDivisions / divider) / numberXDivisions;
+            } else {
+                numberXDivisions = (int) min(10, ceil(xDiff / 2.0) + 1);
+                xIncrementer = round(xDiff / numberXDivisions);
+            }
+
+            if (yDiff <= 0.5) {
+                String yStartString = firstDecimal(yStartDouble);
+                yStartDouble = Double.parseDouble(yStartString) / 10;
+                yDiff = round((yMax - yStartDouble) * 10) / 10.0;
+
+                numberYDivisions = max(0, Integer.parseInt(firstDecimal(yDiff)) - 1);
+                yIncrementer = yDiff / (numberYDivisions + 1);
+                numberYDivisions += 1;
+            } else {
+                yStartDouble = 0.0;
+            }
 
             for (int i = 0; i < numberYDivisions + 1; i++) {
                 int x0 = padding + labelPadding;
                 int x1 = pointWidth + padding + labelPadding;
+
                 int y0 = getHeight() - ((i * (getHeight() - padding * 2 - labelPadding)) / numberYDivisions + padding + labelPadding);
 
-                if (xCoordinates.size() > 0) {
+                if (yCoordinates.size() > 0) {
                     graphics.setColor(gridColor);
                     graphics.drawLine(padding + labelPadding + 1 + pointWidth, y0, getWidth() - padding, y0);
                     graphics.setColor(Color.BLACK);
-                    String yLabel = ((int) ((getMinScore() + (getMaxScore() - getMinScore()) * ((i * 1.0) / numberYDivisions)) * 100)) / 100.0 + "";
+
+                    String yLabel;
+                    if (yDiff <= 0.5) {
+                        yLabel = (yStartDouble * 10 +  (yIncrementer * i * 10))/10 + "";
+                    } else {
+                        yLabel = (double)i/10 + "";
+                    }
+
+
+                    if (yLabel.length() > 7) {
+                        yLabel = scientificNotation(yLabel);
+                    }
+
                     FontMetrics metrics = graphics.getFontMetrics();
                     int labelWidth = metrics.stringWidth(yLabel);
                     graphics.drawString(yLabel, x0 - labelWidth - 5, y0 + (metrics.getHeight() / 2) - 3);
+
+                    if (numberYDivisions == 1 && i == 1) {
+                        String halfWayLabel = (yStartDouble * 10 + yIncrementer * 5) / 10 + "";
+                        int y1 = getHeight() - padding - labelPadding;
+                        System.out.println(y1);
+                        int halfY0 = y1 + (y0 - y1)/ 2;
+                        graphics.drawString(halfWayLabel, x0 - labelWidth - 5,  halfY0+ (metrics.getHeight() / 2) - 3);
+                        graphics.setColor(gridColor);
+                        graphics.drawLine(padding + labelPadding + 1 + pointWidth, halfY0, getWidth() - padding, halfY0);
+                    }
                 }
 
                 graphics.drawLine(x0, y0, x1, y0);
             }
 
             // and for x-axis
-            for (int i = 0; i < xCoordinates.size(); i++) {
-                if (xCoordinates.size() > 1) {
-                    int x0 = i * (getWidth() - padding * 2 - labelPadding) / (xCoordinates.size() - 1) + padding + labelPadding;
+            for (int i = 0; i < numberXDivisions + 1; i++) {
+                if (numberXDivisions > 1) {
+                    int x0 = i * (getWidth() - padding * 2 - labelPadding) / (numberXDivisions) + padding + labelPadding;
                     int y0 = getHeight() - padding - labelPadding;
                     int y1 = y0 - pointWidth;
 
-                    if ((i % ((int) ((xCoordinates.size() / 20.0)) + 1)) == 0) {
+                    if (xCoordinates.size() > 0) {
                         graphics.setColor(gridColor);
                         graphics.drawLine(x0, getHeight() - padding - labelPadding - 1 - pointWidth, x0, padding);
                         graphics.setColor(Color.BLACK);
-                        String xLabel = i + "";
+                        String xLabel = (xStart * 10 +  (xIncrementer * i * 10))/ 10 + "";
                         FontMetrics metrics = graphics.getFontMetrics();
                         int labelWidth = metrics.stringWidth(xLabel);
                         graphics.drawString(xLabel, x0 - labelWidth / 2, y0 + metrics.getHeight() + 3);
@@ -163,43 +236,104 @@ public class DrawingUtils extends JFrame {
             graphics.drawLine(padding + labelPadding, getHeight() - padding - labelPadding, padding + labelPadding, padding);
             graphics.drawLine(padding + labelPadding, getHeight() - padding - labelPadding, getWidth() - padding, getHeight() - padding - labelPadding);
 
+            List<List<Double>> graphPoints = new ArrayList<>();
+
+            for (int i = 0; i < xCoordinates.size(); i++) {
+                int xMultiplier = (int) ceil((xCoordinates.get(i) - xStart) / xIncrementer);
+                double xScale = (xCoordinates.get(i) - (xMultiplier - 1)*xIncrementer - xStart) / xIncrementer;
+                int currentX0 = xMultiplier * (getWidth() - padding * 2 - labelPadding) / (numberXDivisions) + padding + labelPadding;
+                double prevX = max(xStart, (double)((xMultiplier - 1) * (getWidth() - padding * 2 - labelPadding) / (numberXDivisions) + padding + labelPadding));
+                double x1 = prevX + xScale * ((double) currentX0 - prevX);
+
+                int yMultiplier = (int) ceil((yCoordinates.get(i) - yStartDouble) / yIncrementer);
+                int currentY0 = getHeight() - ((yMultiplier * (getHeight() - padding * 2 - labelPadding)) / numberYDivisions + padding + labelPadding);
+                double yScale = (yCoordinates.get(i) - (yMultiplier - 1)*yIncrementer - yStartDouble) / yIncrementer;
+                double prevY = max(yStartDouble, (getHeight() - ((double)((yMultiplier - 1) * (getHeight() - padding * 2 - labelPadding)) / numberYDivisions + padding + labelPadding)));
+                double y1 = currentY0 + ((1 - yScale) * (prevY - currentY0));
+
+                graphPoints.add(new ArrayList<>(Arrays.asList(x1, y1)));
+            }
+
             Stroke oldStroke = graphics.getStroke();
             graphics.setColor(lineColor);
             graphics.setStroke(GRAPH_STROKE);
+
             for (int i = 0; i < graphPoints.size() - 1; i++) {
-                int x1 = graphPoints.get(i).x;
-                int y1 = graphPoints.get(i).y;
-                int x2 = graphPoints.get(i + 1).x;
-                int y2 = graphPoints.get(i + 1).y;
-                graphics.drawLine(x1, y1, x2, y2);
+                Double x1 = graphPoints.get(i).get(0);
+                Double y1 = graphPoints.get(i).get(1);
+
+                Double x2 = graphPoints.get(i + 1).get(0);
+                Double y2 = graphPoints.get(i + 1).get(1);
+
+                Line2D shape = new Line2D.Double();
+                shape.setLine(x1, y1, x2, y2);
+                graphics.draw(shape);
             }
 
             graphics.setStroke(oldStroke);
-            graphics.setColor(pointColor);
 
-            for (Point graphPoint : graphPoints) {
-                int x = graphPoint.x - pointWidth / 2;
-                int y = graphPoint.y - pointWidth / 2;
+
+            for (int i = 0; i < graphPoints.size(); i++) {
+                if (yCoordinates.get(i) == yMax) {
+                    graphics.setColor(highestPointColor);
+                } else {
+                    graphics.setColor(pointColor);
+                }
+
+                int x = graphPoints.get(i).get(0).intValue() - pointWidth / 2;
+                int y = graphPoints.get(i).get(1).intValue() - pointWidth / 2;
                 graphics.fillOval(x, y, pointWidth, pointHeight);
             }
         }
 
-        private double getMinScore() {
+        private String trim(String xLabel) {
+            int end = xLabel.length();
+
+            for (int i = 3; i < xLabel.length(); i++) {
+                if (xLabel.charAt(i) == '0') {
+                    end = i;
+                    break;
+                }
+            }
+
+            return xLabel.substring(0, end);
+        }
+
+        private double getMinScore(List<Double> lst) {
             double minScore = Double.MAX_VALUE;
-            for (Double score : yCoordinates) {
+            for (Double score : lst) {
                 minScore = Math.min(minScore, score);
             }
 
             return minScore;
         }
 
-        private double getMaxScore() {
+        private double getMaxScore(List<Double> lst) {
             double maxScore = Double.MIN_VALUE;
-            for (Double score : yCoordinates) {
+            for (Double score : lst) {
                 maxScore = Math.max(maxScore, score);
             }
 
             return maxScore;
+        }
+
+        private String scientificNotation(String str) {
+            StringBuilder ans = new StringBuilder("." + str.charAt(2));
+
+            int startIndex = 3;
+            while (startIndex < str.length() && str.charAt(startIndex) == '0') {
+                ++startIndex;
+            }
+
+            ans.append("+").append(str.charAt(startIndex));
+
+            ans.append("E-").append(startIndex - 2);
+
+            return ans.toString();
+        }
+
+        private String firstDecimal(Double dob) {
+            return Double.toString(dob).substring(2, 3);
         }
 
         public void setScores(List<Double> xCoordinates, List<Double> yCoordinates) {
@@ -210,7 +344,7 @@ public class DrawingUtils extends JFrame {
         }
 
         public List<List<Double>> getScores() {
-            return new ArrayList<>(List.of(xCoordinates, yCoordinates));
+            return new ArrayList<>(Arrays.asList(xCoordinates, yCoordinates));
         }
 
         public void addTitle(String wantedTitle) {
@@ -221,15 +355,13 @@ public class DrawingUtils extends JFrame {
         }
 
         private static void createAndShowGui(List<Double> xCoordinates, List<Double> yCoordinates, File imgFile) throws IOException {
-            utils.DrawingUtils.GraphPanel.MainPanel mainPanel = new utils.DrawingUtils.GraphPanel.MainPanel(xCoordinates, yCoordinates, "Consensus Result");
+            DrawingUtils.GraphPanel.MainPanel mainPanel = new DrawingUtils.GraphPanel.MainPanel(xCoordinates, yCoordinates, "Consensus Result");
             mainPanel.setPreferredSize(new Dimension(1000, 800));
 
             JFrame frame = new JFrame("Consensus Result");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.getContentPane().add(mainPanel);
             frame.pack();
-            frame.setLocationRelativeTo(null);
-            frame.setVisible(true);
 
             Container content = frame.getContentPane();
             BufferedImage img = new BufferedImage(frame.getWidth() - 15, frame.getHeight() - 36, BufferedImage.TYPE_INT_RGB);
@@ -237,6 +369,7 @@ public class DrawingUtils extends JFrame {
             content.printAll(g2d);
             g2d.dispose();
             ImageIO.write(img, "png", imgFile);
+            frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
         }
 
         static class MainPanel extends JPanel {
@@ -247,17 +380,16 @@ public class DrawingUtils extends JFrame {
                 title.setFont(new Font("Arial", Font.BOLD, 25));
                 title.setHorizontalAlignment(JLabel.CENTER);
 
-                JPanel graphPanel = new utils.DrawingUtils.GraphPanel(xCoordinates, yCoordinates, null);
+                JPanel graphPanel = new DrawingUtils.GraphPanel(xCoordinates, yCoordinates, null);
 
-                utils.DrawingUtils.GraphPanel.VerticalPanel verticalPanel = new utils.DrawingUtils.GraphPanel.VerticalPanel("Probability");
+                DrawingUtils.GraphPanel.VerticalPanel verticalPanel = new DrawingUtils.GraphPanel.VerticalPanel("Probability");
 
-                utils.DrawingUtils.GraphPanel.HorizontalPanel horizontalPanel = new utils.DrawingUtils.GraphPanel.HorizontalPanel("Expected Messages");
+                DrawingUtils.GraphPanel.HorizontalPanel horizontalPanel = new DrawingUtils.GraphPanel.HorizontalPanel("Expected Messages");
 
                 add(title, BorderLayout.NORTH);
                 add(horizontalPanel, BorderLayout.SOUTH);
                 add(verticalPanel, BorderLayout.WEST);
                 add(graphPanel, BorderLayout.CENTER);
-
             }
         }
 
