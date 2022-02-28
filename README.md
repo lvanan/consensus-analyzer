@@ -50,7 +50,7 @@ Run ``bin/run``with parameters:
 
 Configuration example: ./resources/cnf_simple.yaml
 
-Run example: bin/run ./resources/cnf_simple.yaml ./resources true
+Run example: bin/run ./resources/cnf_simple.yaml ./results true
 
 TODO:
 * split configuration file on distinct 2 files: for probability and for specification - Folu
