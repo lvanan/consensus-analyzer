@@ -63,6 +63,10 @@ public class DrawingUtils extends JFrame {
                             expectedMessage.append(lineText.charAt(i));
                             ++i;
                         }
+                        
+                        if (expectedMessage.toString().equals("\"Infinity\"")) {
+                            throw new GraphException("Expected Message is infinity");
+                        }
 
                         double expMessage = Double.parseDouble(expectedMessage.toString());
 
