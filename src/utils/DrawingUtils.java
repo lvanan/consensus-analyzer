@@ -167,6 +167,9 @@ public class DrawingUtils extends JFrame {
             } else {
                 numberXDivisions = (int) min(10, ceil(xDiff / 2.0) + 1);
                 xIncrementer = round(xDiff / numberXDivisions);
+                if (xIncrementer < (xDiff / numberXDivisions)) {
+                    ++numberXDivisions;
+                }
             }
 
             if (yDiff <= 0.5) {
