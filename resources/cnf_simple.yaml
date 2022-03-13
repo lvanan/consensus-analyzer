@@ -20,4 +20,4 @@ Organizations:
 Policies:
   Endorsement:
     Type: Signature
-    Rule: "(Org1 & Org2 & Org3)"
+    Rule: "Org1 & Org3"

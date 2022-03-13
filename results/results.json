@@ -1,0 +1,3284 @@
+{
+  "modelCheckResultList": [
+    {
+      "backwardTransitions": [],
+      "probability": 0.25,
+      "expectedMessages": 3.0,
+      "id": 0,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ]
+      ],
+      "probability": 0.2857142686843872,
+      "expectedMessages": 3.4285712242126465,
+      "id": 1308927845,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          0,
+          -1
+        ]
+      ],
+      "probability": 0.28571414947509766,
+      "expectedMessages": 3.4285707473754883,
+      "id": 2017354584,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ]
+      ],
+      "probability": 0.2857142686843872,
+      "expectedMessages": 3.4285712242126465,
+      "id": 391447681,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "probability": 0.28571414947509766,
+      "expectedMessages": 3.42857027053833,
+      "id": 1935637221,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.33333325386047363,
+      "expectedMessages": 3.9999992847442627,
+      "id": 403424356,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.16666650772094727,
+      "expectedMessages": 3.999998092651367,
+      "id": 321142942,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.5,
+      "expectedMessages": 6.0,
+      "id": 745160567,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ]
+      ],
+      "probability": 0.33333325386047363,
+      "expectedMessages": 3.9999961853027344,
+      "id": -968684867,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ]
+      ],
+      "probability": 0.33333325386047363,
+      "expectedMessages": 3.9999961853027344,
+      "id": 1700375526,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "probability": 0.33333325386047363,
+      "expectedMessages": 3.9999961853027344,
+      "id": -1050402230,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.33333325386047363,
+      "expectedMessages": 3.9999992847442627,
+      "id": 1712352201,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.19999987410847098,
+      "expectedMessages": 4.799996805260889,
+      "id": 1630070787,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.5,
+      "expectedMessages": 6.0,
+      "id": 2054088412,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ]
+      ],
+      "probability": 0.33333325386047363,
+      "expectedMessages": 3.9999961853027344,
+      "id": -1886165031,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "probability": 0.33333301544189453,
+      "expectedMessages": 3.9999961853027344,
+      "id": -341975491,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.39999961986904964,
+      "expectedMessages": 4.799995176726952,
+      "id": -1874188356,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.16666650772094727,
+      "expectedMessages": 3.999998092651367,
+      "id": -1956469770,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.6666660308837891,
+      "expectedMessages": 7.999993324279785,
+      "id": -1532452145,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "probability": 0.33333325386047363,
+      "expectedMessages": 3.9999961853027344,
+      "id": -1967882394,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.39999961986904964,
+      "expectedMessages": 4.799995176726952,
+      "id": 794872037,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.19999987410847098,
+      "expectedMessages": 4.799996805260889,
+      "id": 712590623,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.5,
+      "expectedMessages": 6.0,
+      "id": 1136608248,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.39999961986904964,
+      "expectedMessages": 4.799995176726952,
+      "id": -1955905719,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.19999971304787323,
+      "expectedMessages": 4.799992718035355,
+      "id": -2038187133,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.6666660308837891,
+      "expectedMessages": 7.999992370605469,
+      "id": -1614169508,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.2499997615814209,
+      "expectedMessages": 5.999990463256836,
+      "id": 724567298,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.5,
+      "expectedMessages": 6.0,
+      "id": 1148584923,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.4999990463256836,
+      "expectedMessages": 11.999969482421875,
+      "id": 1066303509,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ]
+      ],
+      "probability": 0.39999983687181384,
+      "expectedMessages": 4.799994779898043,
+      "id": -577237186,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "probability": 0.39999983687181384,
+      "expectedMessages": 4.799994779898043,
+      "id": 966952354,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.39999961986904964,
+      "expectedMessages": 4.799995176726952,
+      "id": -565260511,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.19999987410847098,
+      "expectedMessages": 4.799996805260889,
+      "id": -647541925,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.6666660308837891,
+      "expectedMessages": 7.999993324279785,
+      "id": -223524300,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "probability": 0.39999983687181384,
+      "expectedMessages": 4.799994779898043,
+      "id": -658954549,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.39999961986904964,
+      "expectedMessages": 4.799995176726952,
+      "id": 2103799882,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.2499995960509409,
+      "expectedMessages": 5.999990061926642,
+      "id": 2021518468,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.5,
+      "expectedMessages": 6.0,
+      "id": -1849431203,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.39999961986904964,
+      "expectedMessages": 4.799995176726952,
+      "id": -646977874,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.2499995960509409,
+      "expectedMessages": 5.999990061926642,
+      "id": -729259288,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.6666660308837891,
+      "expectedMessages": 7.999992370605469,
+      "id": -305241663,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.2499997615814209,
+      "expectedMessages": 5.999990463256836,
+      "id": 2033495143,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.5,
+      "expectedMessages": 6.0,
+      "id": -1837454528,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.4999990463256836,
+      "expectedMessages": 11.999969482421875,
+      "id": -1919735942,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "probability": 0.39999983687181384,
+      "expectedMessages": 4.799994779898043,
+      "id": 49472190,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.4999989379399814,
+      "expectedMessages": 5.999986935444284,
+      "id": -1482740675,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.19999987410847098,
+      "expectedMessages": 4.799996805260889,
+      "id": -1565022089,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.6666660308837891,
+      "expectedMessages": 7.999993324279785,
+      "id": -1141004464,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.4999989379399814,
+      "expectedMessages": 5.999986935444284,
+      "id": 61448865,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.19999971304787323,
+      "expectedMessages": 4.799992718035355,
+      "id": -20832549,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 11.999969482421875,
+      "id": 403185076,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.2499997615814209,
+      "expectedMessages": 5.999990463256836,
+      "id": -1553045414,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.6666660308837891,
+      "expectedMessages": 7.999993324279785,
+      "id": -1129027789,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.4999990463256836,
+      "expectedMessages": 11.999969482421875,
+      "id": -1211309203,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.4999989379399814,
+      "expectedMessages": 5.999986935444284,
+      "id": -1564458038,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.2499995960509409,
+      "expectedMessages": 5.999990061926642,
+      "id": -1646739452,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.6666660308837891,
+      "expectedMessages": 7.999992370605469,
+      "id": -1222721827,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.33333245453553106,
+      "expectedMessages": 7.999978591888151,
+      "id": 1116014979,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.5,
+      "expectedMessages": 6.0,
+      "id": 1540032604,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.4999990463256836,
+      "expectedMessages": 11.999969482421875,
+      "id": 1457751190,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.3333322470795112,
+      "expectedMessages": 7.999973538118485,
+      "id": -1634762777,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.6666660308837891,
+      "expectedMessages": 7.999992370605469,
+      "id": -1210745152,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 23.99982489928296,
+      "id": -1293026566,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.4999990463256836,
+      "expectedMessages": 11.999969482421875,
+      "id": 1469727865,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "probability": 0.4999995231628418,
+      "expectedMessages": 5.999988555908203,
+      "id": 1358400035,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.4999989379399814,
+      "expectedMessages": 5.999986935444284,
+      "id": -173812830,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.2499995960509409,
+      "expectedMessages": 5.999990061926642,
+      "id": -256094244,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.6666660308837891,
+      "expectedMessages": 7.999993324279785,
+      "id": 167923381,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.4999989379399814,
+      "expectedMessages": 5.999986935444284,
+      "id": 1370376710,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.2499995960509409,
+      "expectedMessages": 5.999990061926642,
+      "id": 1288095296,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 11.999969482421875,
+      "id": 1712112921,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.2499997615814209,
+      "expectedMessages": 5.999990463256836,
+      "id": -244117569,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.6666660308837891,
+      "expectedMessages": 7.999993324279785,
+      "id": 179900056,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.4999990463256836,
+      "expectedMessages": 11.999969482421875,
+      "id": 97618642,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.4999989379399814,
+      "expectedMessages": 5.999986935444284,
+      "id": -255530193,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.33333231311941103,
+      "expectedMessages": 7.999975251757975,
+      "id": -337811607,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.6666660308837891,
+      "expectedMessages": 7.999992370605469,
+      "id": 86206018,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.33333245453553106,
+      "expectedMessages": 7.999978591888151,
+      "id": -1870024472,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.5,
+      "expectedMessages": 6.0,
+      "id": -1446006847,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.4999990463256836,
+      "expectedMessages": 11.999969482421875,
+      "id": -1528288261,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.3333322470795112,
+      "expectedMessages": 7.999973538118485,
+      "id": -325834932,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.6666660308837891,
+      "expectedMessages": 7.999992370605469,
+      "id": 98182693,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 23.99982489928296,
+      "id": 15901279,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.4999990463256836,
+      "expectedMessages": 11.999969482421875,
+      "id": -1516311586,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.6666642255254066,
+      "expectedMessages": 7.999970391525324,
+      "id": 452896546,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.2499995960509409,
+      "expectedMessages": 5.999990061926642,
+      "id": 370615132,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 11.999969482421875,
+      "id": 794632757,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.33333245453553106,
+      "expectedMessages": 7.999978591888151,
+      "id": -1161597733,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.6666660308837891,
+      "expectedMessages": 7.999993324279785,
+      "id": -737580108,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.4999990463256836,
+      "expectedMessages": 11.999969482421875,
+      "id": -819861522,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.3333322470795112,
+      "expectedMessages": 7.999973538118485,
+      "id": 382591807,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 11.999969482421875,
+      "id": 806609432,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 23.99982489928296,
+      "id": 724328018,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.4999990463256836,
+      "expectedMessages": 11.999969482421875,
+      "id": -807884847,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.4999968492440252,
+      "expectedMessages": 11.999924002717016,
+      "id": -1243315096,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.6666660308837891,
+      "expectedMessages": 7.999992370605469,
+      "id": -819297471,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 23.99982489928296,
+      "id": -901578885,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.4999990463256836,
+      "expectedMessages": 11.999969482421875,
+      "id": 1861175546,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 23.99982489928296,
+      "id": -889602210,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.6666642255254066,
+      "expectedMessages": 7.999970391525324,
+      "id": 1761824391,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.33333231311941103,
+      "expectedMessages": 7.999975251757975,
+      "id": 1679542977,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 11.999969482421875,
+      "id": 2103560602,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.33333245453553106,
+      "expectedMessages": 7.999978591888151,
+      "id": 147330112,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.6666660308837891,
+      "expectedMessages": 7.999993324279785,
+      "id": 571347737,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.4999990463256836,
+      "expectedMessages": 11.999969482421875,
+      "id": 489066323,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.3333322470795112,
+      "expectedMessages": 7.999973538118485,
+      "id": 1691519652,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 11.999969482421875,
+      "id": 2115537277,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 23.99982489928296,
+      "id": 2033255863,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.4999990463256836,
+      "expectedMessages": 11.999969482421875,
+      "id": 501042998,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.4999968492440252,
+      "expectedMessages": 11.999924002717016,
+      "id": 65612749,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.6666660308837891,
+      "expectedMessages": 7.999992370605469,
+      "id": 489630374,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 23.99982489928296,
+      "id": 407348960,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.4999990463256836,
+      "expectedMessages": 11.999969482421875,
+      "id": -1124863905,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 23.99982489928296,
+      "id": 419325635,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.4999968492440252,
+      "expectedMessages": 11.999924002717016,
+      "id": 774039488,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 11.999969482421875,
+      "id": 1198057113,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 23.99982489928296,
+      "id": 1115775699,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.4999990463256836,
+      "expectedMessages": 11.999969482421875,
+      "id": -416437166,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 23.99982489928296,
+      "id": 1127752374,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 23.99982489928296,
+      "id": -498154529,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.4999968492440252,
+      "expectedMessages": 11.999924002717016,
+      "id": 2082967333,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 11.999969482421875,
+      "id": -1787982338,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 23.99982489928296,
+      "id": -1870263752,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 0.4999990463256836,
+      "expectedMessages": 11.999969482421875,
+      "id": 892490679,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 23.99982489928296,
+      "id": -1858287077,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 23.99982489928296,
+      "id": 810773316,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 23.99982489928296,
+      "id": 1519200055,
+      "epochTimestamp": 1647182858286
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 23.99982489928296,
+      "id": -1466839396,
+      "epochTimestamp": 1647182858286
+    }
+  ],
+  "specification": [
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      0,
+      1
+    ]
+  ],
+  "organizations": [
+    "Org1",
+    "Org2",
+    "Org3"
+  ]
+}
