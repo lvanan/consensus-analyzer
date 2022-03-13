@@ -1,8 +1,10 @@
 package services.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import exceptions.GraphException;
 import repositories.model.ModelCheckResult;
 import repositories.model.ModelCheckerResultWrapper;
+import utils.DrawingUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -41,14 +43,22 @@ public class CNFModelChecker {
         modelCheckerResultWrapper.setSpecification(cnfModelCheckerService.getSpec());
         modelCheckerResultWrapper.setOrganizations(cnfModelCheckerService.getOrganizations());
 
-        outputPath = outputPath + "/results.json";
+        String outputPathJson = outputPath + "/results.json";
 
-        System.out.printf("writing results to json in %s%n", outputPath);
+        DrawingUtils drawingUtils = new DrawingUtils();
+
+
+        System.out.printf("writing results to json in %s%n", outputPathJson);
 
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            objectMapper.writeValue(new File(outputPath), modelCheckerResultWrapper);
-        } catch (IOException e) {
+            objectMapper.writeValue(new File(outputPathJson), modelCheckerResultWrapper);
+
+            outputPath = outputPath + "/graph.png";
+
+            System.out.printf("building dependency and saving in in %s%n", outputPath);
+            drawingUtils.drawGraph(outputPathJson, outputPath);
+        } catch (IOException | GraphException e) {
             e.printStackTrace();
         }
     }
