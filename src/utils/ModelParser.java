@@ -143,7 +143,7 @@ public class ModelParser {
                         final Set<String> setToReturn = new LinkedHashSet<>();
                         final Set<String> tempSet = new HashSet<>();
 
-                        for (String tempStr : str.toString().split(" & ")) {
+                        for (String tempStr : str.toString().split("&")) {
                             String realLiteral = tempStr;
 
                             if (tempStr.contains(" ")) {

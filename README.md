@@ -32,7 +32,7 @@ Download a copy of PRISM and build it
 Download the ``consensus-analyzer`` repo and build the examples
 
 * ``cd ../..``
-* ``git clone https://github.com/1vanan/consensus-analyzer``
+* ``git clone https://github.com/prismmodelchecker/prism-api``
 * ``cd consensus-analyzer``
 * ``make``
 
@@ -51,10 +51,16 @@ Run ``bin/run``with parameters:
 
 Configuration example: ./resources/cnf_simple.yaml
 
-Run example: bin/run ./resources/cnf_simple.yaml ./results true
+Run example: bin/run ./resources/cnf_simple.yaml ./results false
+Run example with backward transitions: bin/run ./resources/cnf_simple.yaml ./results true
+
+Configuration example with 2 distinct files for configuration and specification: 
+* names of organizations and probabilities: ./resources/cnf-1/cnf_1_properties.yaml
+* consensus condition: ./resources/cnf-1/cnf_2_spec.yaml
+
+Run example: bin/run ./resources/cnf-1/cnf_1_properties.yaml  ./resources/cnf-1/cnf_1_spec.yaml ./results false
+Run example with backward transitions: bin/run ./resources/cnf-1/cnf_1_properties.yaml  ./resources/cnf-1/cnf_1_spec.yaml ./results true
 
 TODO:
-* split configuration file on distinct 2 files: for probability and for specification - Folu
 * how to add prism precision
 * figure out how to connect prism with maven and build the project as a single jar with fat jar
-* visualization

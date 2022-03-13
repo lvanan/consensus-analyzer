@@ -2,21 +2,28 @@ package utils;
 
 import exceptions.GraphException;
 
-import javax.swing.*;
-import java.awt.event.WindowEvent;
-import java.awt.geom.Line2D;
-import java.io.*;
-import java.util.*;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.List;
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
+import java.awt.*;
+import java.awt.event.WindowEvent;
+import java.awt.geom.Line2D;
+import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
-import static java.lang.Math.*;
+import static java.lang.Math.ceil;
+import static java.lang.Math.max;
+import static java.lang.Math.min;
+import static java.lang.Math.round;
 
 
 public class DrawingUtils extends JFrame {
@@ -65,13 +72,13 @@ public class DrawingUtils extends JFrame {
                         }
                         
                         if (expectedMessage.toString().equals("\"Infinity\"")) {
-                            throw new GraphException("Expected Message is infinity");
+                            throw new GraphException("Expected number of messages is infinity");
                         }
 
                         double expMessage = Double.parseDouble(expectedMessage.toString());
 
                         if (expMessage < 0) {
-                            throw new GraphException("Expected Message less than 0");
+                            throw new GraphException("Expected number of messages less than 0");
                         }
 
                         expectedMessages.add(expMessage);
@@ -358,10 +365,10 @@ public class DrawingUtils extends JFrame {
         }
 
         private static void createAndShowGui(List<Double> xCoordinates, List<Double> yCoordinates, File imgFile) throws IOException {
-            DrawingUtils.GraphPanel.MainPanel mainPanel = new DrawingUtils.GraphPanel.MainPanel(xCoordinates, yCoordinates, "Consensus Result");
+            DrawingUtils.GraphPanel.MainPanel mainPanel = new DrawingUtils.GraphPanel.MainPanel(xCoordinates, yCoordinates, "Probability vs expected number of messages");
             mainPanel.setPreferredSize(new Dimension(1000, 800));
 
-            JFrame frame = new JFrame("Consensus Result");
+            JFrame frame = new JFrame("Probability vs expected number of messages");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.getContentPane().add(mainPanel);
             frame.pack();
@@ -387,7 +394,7 @@ public class DrawingUtils extends JFrame {
 
                 DrawingUtils.GraphPanel.VerticalPanel verticalPanel = new DrawingUtils.GraphPanel.VerticalPanel("Probability");
 
-                DrawingUtils.GraphPanel.HorizontalPanel horizontalPanel = new DrawingUtils.GraphPanel.HorizontalPanel("Expected Messages");
+                DrawingUtils.GraphPanel.HorizontalPanel horizontalPanel = new DrawingUtils.GraphPanel.HorizontalPanel("Expected number of messages");
 
                 add(title, BorderLayout.NORTH);
                 add(horizontalPanel, BorderLayout.SOUTH);
