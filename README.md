@@ -42,6 +42,7 @@ If you want to use a PRISM distribution located elsewhere, build like this:
 * ``make PRISM_DIR=/some/copy/of/prism``
 
 ## Usage instructions
+Go to the consensus-analyzer directory. Compile: run "make" command in this directory.
 
 Run ``bin/run``with parameters: 
 * path to configuration file

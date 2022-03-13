@@ -36,14 +36,24 @@ public class CNFModelCheckerServiceImpl implements CNFModelCheckerService {
     private List<String> organizations;
 
     @Override
-    public List<ModelCheckResult> getModelCheckingResult(String configPath, String outputPath,
-                                                         boolean computeBackwards) {
+    public List<ModelCheckResult> getModelCheckingResult(String configProbabilityPath, String configSpecificationPath, String outputPath, boolean computeBackwards) {
         List<ModelCheckResult> result = new ArrayList<>();
         ModelParser modelParser = new ModelParser();
-        File configFile = new File(configPath);
 
         try {
-            CNFNegationModel cnfModel = modelParser.parseCNFNegationModel(configFile);
+            CNFNegationModel cnfModel;
+
+
+            File configFile = new File(configProbabilityPath);
+
+
+            if (configSpecificationPath == null) {
+                cnfModel = modelParser.parseCNFNegationModel(configFile);
+            } else {
+                File configSpecificationFile = new File(configSpecificationPath);
+
+                cnfModel = modelParser.parseCNFNegationModel(configFile, configSpecificationFile);
+            }
 
             Map<String, Double> probabilitiesMap = modelParser.parseAcceptanceProbabilities(configFile);
 
@@ -69,7 +79,8 @@ public class CNFModelCheckerServiceImpl implements CNFModelCheckerService {
 
             spec = modelParser.getSortedSpecifications(cnfModel);
 
-            long epochTime =  Instant.now().toEpochMilli();;
+            long epochTime = Instant.now().toEpochMilli();
+            ;
 
             int folderCnt = 0;
             for (Set<int[]> backwardTransitions :
