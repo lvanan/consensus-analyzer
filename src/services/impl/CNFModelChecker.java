@@ -45,19 +45,20 @@ public class CNFModelChecker {
 
         String outputPathJson = outputPath + "/results.json";
 
-        DrawingUtils drawingUtils = new DrawingUtils();
-
-
         System.out.printf("writing results to json in %s%n", outputPathJson);
 
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             objectMapper.writeValue(new File(outputPathJson), modelCheckerResultWrapper);
 
-            outputPath = outputPath + "/graph.png";
+            if (computeBackwards) {
+                outputPath = outputPath + "/graph.png";
 
-            System.out.printf("building dependency and saving in in %s%n", outputPath);
-            drawingUtils.drawGraph(outputPathJson, outputPath);
+                DrawingUtils drawingUtils = new DrawingUtils();
+
+                System.out.printf("building dependency and saving in in %s%n", outputPath);
+                drawingUtils.drawGraph(outputPathJson, outputPath);
+            }
         } catch (IOException | GraphException e) {
             e.printStackTrace();
         }
