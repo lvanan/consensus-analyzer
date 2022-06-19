@@ -58,7 +58,7 @@ Configuration example with 2 distinct files for configuration and specification:
 * names of organizations and probabilities: ./resources/cnf-1/cnf_1_properties.yaml
 * consensus condition: ./resources/cnf-1/cnf_2_spec.yaml
 
-Run example: bin/run ./resources/cnf-1/cnf_1_properties.yaml  ./resources/cnf-1/cnf_1_spec.yaml ./results false
+Run example: bin/run ./resources/cnf-1/cnf_1_properties.yaml  ./resources/cnf-1/cnf_simple.yaml ./results false
 Run example with backward transitions: bin/run ./resources/cnf-1/cnf_1_properties.yaml  ./resources/cnf-1/cnf_1_spec.yaml ./results true
 
 TODO:

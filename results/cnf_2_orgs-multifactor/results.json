@@ -1,0 +1,137 @@
+{
+  "modelCheckResultList": [
+    {
+      "backwardTransitions": [],
+      "probability": 0.73,
+      "expectedMessages": 2.0,
+      "id": 0,
+      "epochTimestamp": 1655631685296
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 2.7397245043669685,
+      "id": 335471116,
+      "epochTimestamp": 1655631685296
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          -1
+        ]
+      ],
+      "probability": 0.721649467,
+      "expectedMessages": 2.06185481,
+      "id": 1308927845,
+      "epochTimestamp": 1655631685296
+    },
+    {
+      "backwardTransitions": [
+        [
+          -1,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 20.0,
+      "id": 2017354584,
+      "epochTimestamp": 1655631685296
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          -1
+        ],
+        [
+          0,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 2.85714133874,
+      "id": 1644398961,
+      "epochTimestamp": 1655631685296
+    },
+    {
+      "backwardTransitions": [
+        [
+          0,
+          -1
+        ],
+        [
+          -1,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 20.0,
+      "id": -1942141596,
+      "epochTimestamp": 1655631685296
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          -1
+        ],
+        [
+          -1,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 28.571413918841007,
+      "id": -968684867,
+      "epochTimestamp": 1655631685296
+    },
+    {
+      "backwardTransitions": [
+        [
+          1,
+          -1
+        ],
+        [
+          0,
+          -1
+        ],
+        [
+          -1,
+          -1
+        ]
+      ],
+      "probability": 1.0,
+      "expectedMessages": 28.571413918841007,
+      "id": -633213751,
+      "epochTimestamp": 1655631685296
+    }
+  ],
+  "specification": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      0,
+      1
+    ]
+  ],
+  "organizations": [
+    "Org1",
+    "Org2"
+  ]
+}
